@@ -1,8 +1,7 @@
 const express = require('express');
 const http = require('http');
-const app = express();
-const io = require('socket.io')(server);
 
+const app = express();
 const clientPath = `../client`;
 app.use(express.static(clientPath));
 const server = http.createServer(app);
@@ -12,3 +11,7 @@ server.listen(8080, () =>{
 });
 
 const io = require('socket.io')(server);
+
+io.on('connection', (socket) => {
+    console.log('someone connected');
+});
