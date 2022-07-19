@@ -12,7 +12,11 @@ server.listen(8080, () =>{
 
 const io = require('socket.io')(server);
 let counter = 0;
+
 io.on('connection', (socket) => {
-    console.log(counter + 'someone connected');
-    counter++;
+    console.log('someone connected');
+    socket.on('sendToAll', (message) =>{
+        console.log(message);
+        io.emit("displayMessage", (message));
+    });
 });
