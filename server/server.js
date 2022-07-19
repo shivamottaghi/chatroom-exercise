@@ -11,7 +11,8 @@ server.listen(8080, () =>{
 });
 
 const io = require('socket.io')(server);
-
+let counter = 0;
 io.on('connection', (socket) => {
-    console.log('someone connected');
+    console.log(counter + 'someone connected');
+    counter++;
 });
