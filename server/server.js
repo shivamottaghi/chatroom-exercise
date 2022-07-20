@@ -17,9 +17,9 @@ io.on('connection', (socket) => {
     console.log('someone connected');
     socket.on('sendToAll', (message) =>{
         //console.log(message);
-        io.emit("displayMessage", (message));
+        io.emit("displayMessage", message);
     });
-    socket.on('sendToMe', message =>{
+    socket.on('sendToMe', (message) =>{
         socket.emit('displayMessage', message);
     });
 });
