@@ -31,10 +31,17 @@ io.on('connection', (socket) => {
     })
     console.log('someone connected');
     socket.on('sendToAll', (message) => {
-        io.emit("displayMessage", message);
+        let userMessage = [];
+        console.log(socket.username)
+        userMessage.push(socket.username);
+        userMessage.push(message)
+        io.emit("displayMessage", userMessage);
     });
     socket.on('sendToMe', (message) => {
-        socket.emit('displayMessage', message);
+        let userMessage = [];
+        userMessage.push(socket.username);
+        userMessage.push(message)
+        socket.emit('displayMessage', userMessage);
     });
 });
 
