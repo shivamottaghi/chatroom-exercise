@@ -34,11 +34,12 @@ const generateOnlineUserStructure = (user) => {
     let namePar = createEl('p', "fw-bold mb-0");
     //let timeDiv = createEl('div', 'pt-1');
     //let timePar = createEl('p', 'small text-muted mb-1');
-    if (user === userName) {
+  /*  if (user === userName) {
         namePar.innerHTML = 'You';
     } else {
         namePar.innerHTML = user;
-    }
+    }*/
+    namePar.innerHTML = user;
     nameDiv.appendChild(namePar);
     flexDiv.appendChild(img);
     flexDiv.appendChild(nameDiv);
@@ -51,12 +52,51 @@ const createEl = (element, className) => {
     return el;
 }
 const displayMessage = (userMessage) => {
-    const target = document.getElementById('messageTarget');
+    let parent = document.getElementById('chatBoxRow');
+    let child = generateMessageStructure(userMessage);
+    console.log(child);
+    parent.insertBefore(child, parent.children[0]);
     //console.log(userMessage[0]);
-    if (userMessage[0] == userName) {
+    /*if (userMessage[0] == userName) {
         userMessage[0] = 'You';
     }
-    target.innerHTML += '<br>' + userMessage[0] + " said: " + userMessage[1];
+    target.innerHTML += '<br>' + userMessage[0] + " said: " + userMessage[1];*/
+}
+/*<li className="d-flex justify-content-between mb-4">
+    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
+         className="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
+        <div className="card">
+            <div className="card-header d-flex justify-content-between p-3">
+                <p className="fw-bold mb-0">Brad Pitt</p>
+                <p className="text-muted small mb-0"><i className="far fa-clock"></i> 10 mins ago</p>
+            </div>
+            <div className="card-body">
+                <p className="mb-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua.
+                </p>
+            </div>
+        </div>
+</li>*/
+const generateMessageStructure = (arr) => {
+    let li = createEl('li' , 'd-flex justify-content-between mb-4');
+    let img = createEl('img', 'rounded-circle d-flex align-self-start me-3 shadow-1-strong' );
+    img.width = '60';
+    img.src = 'images/user-icon-png-pnglogocom-133466.png';
+    let cardDiv = createEl('div', 'card');
+    let cardHeadDiv = createEl('div', 'card-header d-flex justify-content-between p-3');
+    let namePar = createEl('p', 'fw-bold mb-0');
+    let cardBodyDiv = createEl('div' , 'card-body');
+    let messagePar = createEl('p' , 'mb-0');
+    namePar.innerHTML = arr[0];
+    messagePar.innerHTML = arr[1];
+    li.appendChild(img);
+    cardHeadDiv.appendChild(namePar);
+    cardBodyDiv.appendChild(messagePar);
+    cardDiv.appendChild(cardHeadDiv);
+    cardDiv.appendChild(cardBodyDiv);
+    li.appendChild(cardDiv);
+    return li;
 }
 
 
