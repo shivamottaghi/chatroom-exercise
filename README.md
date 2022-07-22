@@ -133,6 +133,7 @@ That's why I used bootstrap 5 in this project. But just bootstrap is never enoug
 - [ ] give minimum height to online user box and message box
 - [ ] round the buttons
 - [ ] fix the user avatar
+- [ ] scrollbar appear when content overflow
 
 
 
