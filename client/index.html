@@ -5,38 +5,57 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-<div class="container" id="pageContainer">
-    <div class="row justify-content-center" id="loginRow">
-        <div class="col-12 col-md-4 text-center">
-            <label for="username">Please enter your user name</label>
-            <input type="text" name="username" id="username">
-            <button class="btn btn-info" id="login">Login</button>
+<section style="background-color: #eee;">
+
+    <div class="container py-5" id="pageContainer">
+        <div class="row justify-content-center" id="loginRow">
+            <div class="col-12 col-md-4 text-center">
+                <label for="username">Please enter your user name</label>
+                <input type="text" name="username" id="username">
+                <button class="btn btn-info" id="login">Login</button>
+            </div>
+        </div>
+        <div class="row d-none" id="displayUsers">
+            <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
+                <h5 class="font-weight-bold mb-3 text-center text-lg-start">Member</h5>
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="list-unstyled mb-0" id="displayUserUl">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row d-none justify-content-center" id="chatBoxRow">
+            <div class="col-12 col-md-4">
+                <input class="d-block" type="text" name="message" id="message">
+                <button class="btn btn-info" id="sendToAll">Send To All</button>
+                <button class="btn btn-primary" id="sendPrivate">Sent Privately</button>
+            </div>
+        </div>
+        <div class="row" id="messageTarget">
+
         </div>
     </div>
-    <div class="row">
-        <p id="displayUsers" class="d-none">
 
-        </p>
-    </div>
-    <div class="row d-none justify-content-center" id="chatBoxRow">
-        <div class="col-12 col-md-4 text-center">
-            <input class="d-block" type="text" name="message" id="message">
-            <button class="btn btn-info" id="sendToAll">Send To All</button>
-            <button class="btn btn-primary" id="sendPrivate">Sent Privately</button>
-        </div>
-    </div>
-    <div class="row" id="messageTarget">
+</section>
 
-    </div>
-</div>
+<!---->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<!---->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="client.js"></script>
 </body>
 </html>
+
